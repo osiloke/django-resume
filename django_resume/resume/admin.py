@@ -1,4 +1,5 @@
 from django.contrib import admin
+from models import ResumeProfile
 
 from models import Overview, PersonalInfo, Education, Job,\
     Accomplishment, Skillset, Skill 
@@ -18,3 +19,4 @@ admin.site.register(Job)
 admin.site.register(Accomplishment, AccomplishmentAdmin)
 admin.site.register(Skillset)
 admin.site.register(Skill, SkillAdmin)
+admin.site.register(ResumeProfile)

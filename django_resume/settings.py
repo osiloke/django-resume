@@ -75,6 +75,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'resume',
+    'south'
 )
 
 # local settings development - put overrides in a "settings_local.py" file

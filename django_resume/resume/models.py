@@ -137,3 +137,19 @@ class Skill(models.Model):
 
     def __unicode__(self):
         return ''.join([self.skillset.name, '-', self.name])
+class ResumeProfile(models.Model):
+    name = models.CharField(max_length=200)
+
+    skills = models.ManyToManyField(Skillset,blank=True)
+    jobs = models.ManyToManyField(Job,blank=True)
+    education = models.ManyToManyField(Education,blank=True)
+    info = models.ManyToManyField(PersonalInfo,blank=True)
+    overview = models.ManyToManyField(Overview,blank=True) 
+    class Meta():
+        ""
+        ""
+    def __str__(self):
+        return "resume: " + self.name
+
+    class Admin:
+        pass
