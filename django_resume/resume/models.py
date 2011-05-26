@@ -1,9 +1,10 @@
 import time
 
 from django.db import models 
-
+from mezzanine.core.fields import RichTextField
+from django.utils.translation import ugettext, ugettext_lazy as _
 class Overview(models.Model):
-    text = models.TextField()
+    text = RichTextField(_("Overview"))
 
     class Meta:
         verbose_name_plural = "Overview"
@@ -35,7 +36,7 @@ class Education(models.Model):
     school_url = models.URLField('School URL')
     start_date = models.DateField()
     completion_date = models.DateField()
-    summary = models.TextField()
+    summary = RichTextField(_("Summary"))
     is_current = models.BooleanField(default=False)
 
     class Meta:
@@ -72,7 +73,7 @@ class Job(models.Model):
     location = models.CharField(max_length=250)
     title = models.CharField(max_length=250)
     company_url = models.URLField('Company URL', verify_exists=False)
-    description = models.TextField(blank=True)
+    description = RichTextField(_("Description"), blank=True)
     start_date = models.DateField()
     completion_date = models.DateField()
     is_current = models.BooleanField(default=False)
@@ -110,7 +111,7 @@ class Job(models.Model):
         return ' '.join([self.company, self.job_date_range()])
 
 class Accomplishment(models.Model):
-    description = models.TextField()
+    description =RichTextField(_("Description"))
     job = models.ForeignKey(Job)
     order = models.IntegerField()
 
